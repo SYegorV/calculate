@@ -4,12 +4,17 @@
 // и создаем контейнер для клавиатуры:
 const output = document.querySelector('output')
 let memoryMS = 0 // определяем memory
+let signMinus = false // true - number отрицательное
 
-// поиск кнопки и добавление к кнопке обработчика события "клик":
+// find button and add in button обработчикa события "click":
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', function() {
         //по клику вызывается функция со значением кнопки в качестве параметра
         calc(this.value)
+        const qwer = document.getElementById('id_pl_mi').value
+        if (this.value === qwer) {            
+            calc(qwer)
+        }
     })
 })
 
@@ -38,10 +43,10 @@ function calc(value) {
                 
             }              
         } catch { // если операцию выполнить невозможно
-            let oldValue = output.textContent // сохраняем значение поля
+            let oldValue = output.textContent // save value поля
             let newValue = 'недопустимое выражение' // create new переменную
             output.textContent = newValue // выводим value новой переменной в поле
-            // через полторы секунды возвращаем полю предыдущее значение:
+            // через полторы секунды возвращаем полю предыдущее value:
             setTimeout(() => {
                 output.textContent = oldValue
             }, 1500)
@@ -60,7 +65,7 @@ function calc(value) {
             let oldValue = output.textContent // save value поля
             let newValue = 'недопустимое выражение' // create new переменную
             output.textContent = newValue // выводим value новой переменной в поле
-            // через полторы секунды возвращаем полю предыдущее значение:
+            // через полторы секунды возвращаем полю предыдущее value:
             setTimeout(() => {
                 output.textContent = oldValue
             }, 1500)
@@ -90,6 +95,9 @@ function calc(value) {
     } else if (value.match(/<-/)) { // если нажат simbol <-
         // <- уменьшаем строку на один simbol:
         output.textContent = output.textContent.substring(0, output.textContent.length - 1)
+    } else if (value.match(/-<>/)) { // если нажат символ &plusmn        
+        signMinus = !signMinus //смена знака        
+        output.textContent = Number(signMinus ? - + Number(output.textContent): Number(output.textContent))        
     } else if (value.match(/CE|Backspace/)) { // если нажат символ CE или Backspace 
         // CE уменьшаем строку на один simbol
         // Backspace вводим предыдущий [символ/действие] повтор
