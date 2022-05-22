@@ -26,7 +26,7 @@
     text-align: right;
 }
 .navbar3 {
-    margin-top: 10px ;           /* отступ от рамки*/
+    margin-top: 18px ;           /* отступ от рамки*/
 }
 .container {    
     display: flex;                  /* в сочетании рамка по центру: */
@@ -47,6 +47,24 @@
     border: 1px solid #16D9E3;
     color: #16D9E3;
 }
+.time-btnone {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    width: 40px;                       /* #ширина кнопки         */
+    height: 40px;                    /* высота кнопки */
+    box-sizing: border-box;    
+    display: block;
+    float: bottom;/**/    
+    margin-bottom: 15px;/**/    
+}  
+.time-btnone:hover {
+    border: 1px solid #16D9E3;
+    color: #16D9E3;
+}
 .time-btnNone {
     background-color: transparent;
     border: 1px solid white;
@@ -55,6 +73,22 @@
     height: 40px;                    /* высота кнопки */
 }  
 .time-btnNone:hover {
+    border: 1px solid white;
+    color: white;
+}
+.time-btnNoneone {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    width: 40px;                       /* #ширина кнопки         */
+    height: 40px;                    /* высота кнопки */
+    box-sizing: border-box;    
+    display: block;
+    float: bottom;/**/    
+    margin-bottom: 15px;/**/    
+}
+
+.time-btnNoneone:hover {
     border: 1px solid white;
     color: white;
 }
@@ -83,7 +117,8 @@
     font-family: inherit;    
     font-size: 14px;
     width: 40px;                              /* #ширина кнопки         */
-    height: 95px;                          /* высота кнопки */
+    /*height: 95px;*/                          /* высота кнопки */
+    box-sizing: border-box;
 }  
 .time-btn-navbar1:hover {
     border: 1px solid #16D9E3;
@@ -107,9 +142,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 0px;
 }
 .time-list0 td {
-    margin: 7px;                        /* отступ между кнопками*/
+    margin: 6.5px;                        /* отступ между кнопками*/
 }
 .dispflex {
     display: flex;    
@@ -120,7 +156,7 @@
     justify-content: center;    
 }
 .time-list1 td {
-    margin: 6px;                        /* отступ между кнопками*/
+    margin: 0px;                        /* отступ между кнопками*/
 }
 output {    
     justify-content: right;
